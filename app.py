@@ -15,7 +15,7 @@ openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 embeddings = OpenAIEmbeddings()
 
-st.header("RideBikes AI")
+st.header("RideBikes GPT")
 resBox =st.empty()
 gravelDB = Chroma(persist_directory=os.path.join('db', 'gravel'), embedding_function=embeddings)
 gravel_retriever = gravelDB.as_retriever(search_kwargs={"k": 3})
@@ -105,7 +105,7 @@ col1, col2= st.columns([99,1])
 
 
 # User input prompt
-user_prompt = st.text_input("Enter your prompt:",
+user_prompt = st.text_input("Ask a question: ",
                             key="prompt",
                             placeholder="e.g. 'Which bike is the best?'",
                             
